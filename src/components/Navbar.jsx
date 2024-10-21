@@ -14,17 +14,17 @@ const Navbar = () => {
       {/* Left section: Logo, Menu, Search */}
       <div className="flex items-center gap-6">
         <div className="logo">
-          <img 
-            className="h-12 w-12 object-contain" 
-            src="https://media.licdn.com/dms/image/v2/C4D0BAQFGZQ7mb6pMYA/company-logo_200_200/company-logo_200_200/0/1630562065204/makerble_logo?e=1737590400&v=beta&t=mjylZT0aHc_tI0fXfDpR9SAt-Btli9ckWlwJ-OWWQdo" 
-            alt="Logo" 
+          <img
+            className="h-12 w-12 object-contain"
+            src="https://media.licdn.com/dms/image/v2/C4D0BAQFGZQ7mb6pMYA/company-logo_200_200/company-logo_200_200/0/1630562065204/makerble_logo?e=1737590400&v=beta&t=mjylZT0aHc_tI0fXfDpR9SAt-Btli9ckWlwJ-OWWQdo"
+            alt="Logo"
           />
         </div>
         <div className="menuname flex gap-6 items-center">
           {/* Dropdown Button */}
           <div className="dropdown relative">
-            <button 
-              onClick={toggleDropdown} 
+            <button
+              onClick={toggleDropdown}
               className="flex items-center text-gray-700 hover:text-gray-900 focus:outline-none"
             >
               My App <FiChevronDown className="ml-1" />
@@ -46,9 +46,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="search relative">
-          <input 
-            type="text" 
-            placeholder="Search" 
+          <input
+            type="text"
+            placeholder="Search"
             className="p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
           />
         </div>
@@ -63,7 +63,12 @@ const Navbar = () => {
           <FiMessageSquare size={24} />
         </div>
         <div className="profile flex items-center gap-2 cursor-pointer">
-          <div className="profilelogo bg-gray-300 h-8 w-8 rounded-full"></div>
+          <div className="profilelogo bg-gray-300 h-8 w-8 rounded-full">
+            <img src="https://plus.unsplash.com/premium_photo-1689530775582-83b8abdb5020?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              className='h-full w-full object-cover rounded-full'
+            />
+          </div>
           <div className="name text-gray-700">
             <p>John Doe</p>
           </div>
