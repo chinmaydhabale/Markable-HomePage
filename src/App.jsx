@@ -8,16 +8,16 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-4 gap-4 p-4">
-        {/* LeftColumn takes up 1 out of 4 columns */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4">
+        {/* LeftColumn takes up full width on mobile, 1/4 on larger screens */}
         <div className="col-span-1">
           <LeftColumn />
         </div>
-        {/* MiddleColumn takes up 2 out of 4 columns */}
-        <div className="col-span-2">
+        {/* MiddleColumn takes up full width on mobile, 2/4 on larger screens */}
+        <div className="col-span-1 md:col-span-2">
           <MiddleColumn />
         </div>
-        {/* RightColumn takes up 1 out of 4 columns */}
+        {/* RightColumn takes up full width on mobile, 1/4 on larger screens */}
         <div className="col-span-1">
           <RightColumn />
         </div>

@@ -1,33 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiSettings } from 'react-icons/fi';
 
 const Tasks = () => {
-    // Initial task list
-    const initialTaskList = [
-        {
-            title: 'Task 1',
-            status: true,
-        },
-        {
-            title: 'Task 2',
-            status: false,
-        },
-        {
-            title: 'Task 3',
-            status: true,
-        },
-        {
-            title: 'Task 4',
-            status: false,
-        },
-    ];
+    // Get tasks from localStorage or use default tasks
+    const getInitialTasks = () => {
+        const storedTasks = localStorage.getItem('taskList');
+        return storedTasks ? JSON.parse(storedTasks) : [
+            { title: 'Task 1', status: true },
+            { title: 'Task 2', status: false },
+            { title: 'Task 3', status: true },
+            { title: 'Task 4', status: false },
+            { title: 'Task 5', status: false },
+        ];
+    };
 
-    const [taskList, setTaskList] = useState(initialTaskList);
+    const [taskList, setTaskList] = useState(getInitialTasks);
     const [newTask, setNewTask] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const tasksPerPage = 2;
+    const [filter, setFilter] = useState(localStorage.getItem('filter') || 'All'); // Initialize filter from localStorage
+    const [isFilterOpen, setIsFilterOpen] = useState(false); // Toggle filter dropdown
+    const tasksPerPage = 4;
 
-    // Handle status change for the tasks
+    // Save tasks and filter to localStorage whenever they change
+    useEffect(() => {
+        localStorage.setItem('taskList', JSON.stringify(taskList));
+    }, [taskList]);
+
+    useEffect(() => {
+        localStorage.setItem('filter', filter);
+    }, [filter]);
+
+    // Handle status change for tasks
     const toggleTaskStatus = (index) => {
         const updatedTasks = [...taskList];
         updatedTasks[index].status = !updatedTasks[index].status;
@@ -42,13 +45,28 @@ const Tasks = () => {
         }
     };
 
+    // Handle filter selection
+    const handleFilterSelect = (selectedFilter) => {
+        setFilter(selectedFilter);
+        setIsFilterOpen(false); // Close the dropdown after selecting
+        setCurrentPage(1); // Reset to the first page when filter changes
+    };
+
     // Pagination logic
     const indexOfLastTask = currentPage * tasksPerPage;
     const indexOfFirstTask = indexOfLastTask - tasksPerPage;
-    const currentTasks = taskList.slice(indexOfFirstTask, indexOfLastTask);
+
+    // Filtered task list based on selected filter
+    const filteredTaskList = taskList.filter((task) => {
+        if (filter === 'All') return true;
+        if (filter === 'To Do') return !task.status;
+        if (filter === 'Done') return task.status;
+    });
+
+    const currentTasks = filteredTaskList.slice(indexOfFirstTask, indexOfLastTask);
 
     const handleNextPage = () => {
-        if (currentPage < Math.ceil(taskList.length / tasksPerPage)) {
+        if (currentPage < Math.ceil(filteredTaskList.length / tasksPerPage)) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -73,9 +91,40 @@ const Tasks = () => {
                         {taskList.filter((task) => task.status).length} Done
                     </div>
                 </div>
-                <button className="text-white bg-blue-500 px-2 py-1 rounded-md hover:text-blue-700 cursor-pointer">
-                    Filter
-                </button>
+
+                {/* Filter Button with Dropdown Popup */}
+                <div className="relative">
+                    <button
+                        className="text-white bg-blue-500 px-2 py-1 rounded-md hover:text-blue-700 cursor-pointer"
+                        onClick={() => setIsFilterOpen(!isFilterOpen)}
+                    >
+                        Filter
+                    </button>
+
+                    {/* Filter Dropdown (Popup) */}
+                    {isFilterOpen && (
+                        <div className="absolute right-0 mt-2 w-32 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                            <div
+                                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                                onClick={() => handleFilterSelect('All')}
+                            >
+                                All
+                            </div>
+                            <div
+                                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                                onClick={() => handleFilterSelect('To Do')}
+                            >
+                                To Do
+                            </div>
+                            <div
+                                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                                onClick={() => handleFilterSelect('Done')}
+                            >
+                                Done
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Task creation section */}
