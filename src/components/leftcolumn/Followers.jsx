@@ -45,8 +45,8 @@ const Followers = () => {
 
 
     return (
-        <div>
-            <h1 className="text-xl font-bold m-4">Followers</h1>
+        <div className='bg-white rounded-lg p-4'>
+            <h1 className="text-xl text-blue-500 font-bold m-4">Followers</h1>
             <div >
                 {showAll && visibleFollowers.map((follower) => (
                     <div className="flex items-center gap-4 m-4">

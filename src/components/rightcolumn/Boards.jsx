@@ -14,7 +14,7 @@ const Boards = () => {
     const boardsToShow = showAll ? boardlist : boardlist.slice(0, 3);
 
     return (
-        <div className="p-4">
+        <div className="p-4 bg-white rounded-lg">
             {/* Header */}
             <h1 className="text-xl font-bold">Boards</h1>
 

@@ -15,13 +15,13 @@ const Projects = () => {
     const projectsToShow = showAll ? projectlist : projectlist.slice(0, 3);
 
     return (
-        <div className="p-4">
+        <div className="p-4 bg-white rounded-lg">
             {/* Header */}
-            <div className="flex justify-between items-center mb-4">
-                <h1 className="text-xl font-bold">Projects</h1>
-                <button className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-md">
+            <div className="flex justify-between items-center mb-4 gap-2">
+                <h1 className="text-lg lg:text-xl text-blue-500 font-bold">Projects</h1>
+                <button className="flex items-center gap-1 bg-blue-500 text-white px-1 lg:px-2 py-1 rounded-md">
                     <FiPlus size={20} />
-                    <span>New Project</span>
+                    <span className='text-sm lg:text-base'>New Project</span>
                 </button>
             </div>
 
@@ -37,7 +37,7 @@ const Projects = () => {
                         <h1 className="font-medium text-lg">{project}</h1>
                     </div>
                     <span className="text-gray-600 cursor-pointer">
-                        <FiSettings size={20} />
+                        <FiSettings size={15} />
                     </span>
                 </div>
             ))}

@@ -9,14 +9,28 @@ import YouFollow from '../components/leftcolumn/YouFollow'
 
 const LeftColumn = () => {
     return (
-        <div>
-            <Events />
-            <Contacts />
-            <Projects />
-            <Albums />
-            <Organisations />
-            <Followers />
-            <YouFollow />
+        <div className='my-4'>
+            <div className='mb-4'>
+                <Events />
+            </div>
+            <div className='mb-4'>
+                <Contacts />
+            </div>
+            <div className='mb-4'>
+                <Projects />
+            </div>
+            <div className='mb-4'>
+                <Albums />
+            </div>
+            <div className='mb-4'>
+                <Organisations />
+            </div>
+            <div className='mb-4'>
+                <Followers />
+            </div>
+            <div className='mb-4'>
+                <YouFollow />
+            </div>
         </div>
     )
 }

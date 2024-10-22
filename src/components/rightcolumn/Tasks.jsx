@@ -78,7 +78,7 @@ const Tasks = () => {
     };
 
     return (
-        <div className="p-4">
+        <div className="p-4 bg-white rounded-lg">
             {/* Header with task count and filter button */}
             <div className="flex justify-between items-center">
                 <h1 className="text-xl font-bold">Tasks</h1>

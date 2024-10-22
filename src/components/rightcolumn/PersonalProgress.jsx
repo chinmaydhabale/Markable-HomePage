@@ -38,7 +38,7 @@ const PersonalProgress = () => {
     const displayedItems = showAll ? personalProgress : personalProgress.slice(0, 3)
 
     return (
-        <div className='p-4'>
+        <div className='p-4 bg-white rounded-lg'>
             <div className='flex justify-between items-center mb-4'>
                 <h1 className='text-xl font-bold'>Personal Progress</h1>
                 <span className='text-blue-500 cursor-pointer'>Go to Board</span>

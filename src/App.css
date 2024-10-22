@@ -1,0 +1,20 @@
+/* Global styling for hiding scrollbars while allowing scroll */
+.hide-scrollbar {
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+  
+  
+  /* Scrollable columns on desktop */
+  @media (min-width: 768px) {
+    .left-column,
+    .middle-column,
+    .right-column {
+      max-height: 100vh; /* Set a maximum height for columns */
+    }
+  }
+  

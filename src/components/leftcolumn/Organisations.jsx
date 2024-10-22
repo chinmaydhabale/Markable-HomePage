@@ -32,8 +32,8 @@ const Organisations = () => {
     const visibleOrganisations = showAll ? organisationlist : organisationlist.slice(0, 2);
 
     return (
-        <div>
-            <h1 className="text-xl font-bold m-4">Organisations</h1>
+        <div className='bg-white rounded-lg p-4'>
+            <h1 className="text-xl text-blue-500 font-bold m-4">Organisations</h1>
             {visibleOrganisations.map((organisation) => (
                 <div key={organisation.id} className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -47,7 +47,7 @@ const Organisations = () => {
                         </div>
                     </div>
                     <span className="text-gray-600 cursor-pointer">
-                        <FiSettings size={20} />
+                        <FiSettings size={15} />
                     </span>
                 </div>
             ))}

@@ -97,25 +97,25 @@ const Events = () => {
     const eventsToDisplay = showAll ? eventsjson : eventsjson.slice(0, 3);
 
     return (
-        <div className="p-4">
-            <h1 className="text-xl font-bold mb-4">Events</h1>
+        <div className="p-4 bg-white rounded-lg">
+            <h1 className="text-xl text-blue-500 font-bold mb-4">Events</h1>
             <hr />
             {eventsToDisplay.map((event, index) => (
-                <div key={index} className="my-4 p-4 bg-gray-100 rounded-lg shadow">
+                <div key={index} className="my-4 p-4 rounded-lg shadow">
                     {/* Event header */}
                     <div className="flex justify-between items-center mb-2">
                         <div className="font-semibold text-lg">{event.eventname}</div>
-                        <span className="text-gray-600 cursor-pointer">
-                            <FiSettings size={20} />
+                        <span className=" cursor-pointer">
+                            <FiSettings size={15} />
                         </span>
                     </div>
                     {/* Event date and time */}
-                    <div className="text-gray-700">
+                    <div className="">
                         {event.fromeventdate.time} {event.fromeventdate.date} -{' '}
                         {event.toeventdate.time} {event.toeventdate.date}
                     </div>
                     {/* Total people */}
-                    <div className="text-gray-600 mt-2">
+                    <div className=" mt-2">
                         <span>{event.totalpeople.manager} Manager</span>,{' '}
                         <span>{event.totalpeople.worker} Worker</span>,{' '}
                         <span>{event.totalpeople.Guest} Guest</span>

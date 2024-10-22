@@ -5,10 +5,16 @@ import Tasks from '../components/rightcolumn/Tasks'
 
 const RightColumn = () => {
   return (
-    <div>
-      <Boards />
-      <PersonalProgress />
-      <Tasks />
+    <div className='my-4'>
+      <div className='mb-4'>
+        <Boards />
+      </div>
+      <div className='mb-4'>
+        <PersonalProgress />
+      </div>
+      <div className='mb-4'>
+        <Tasks />
+      </div>
     </div>
   )
 }

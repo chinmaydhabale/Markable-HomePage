@@ -130,7 +130,7 @@ const MiddleColumn = () => {
 
   return (
     <div className='mt-4'>
-      <div className='flex items-center gap-2'>
+      <div className='flex items-center gap-2 bg-white rounded-lg p-4'>
         <input
           type="text"
           placeholder="John Doe Shared Some Progress"
@@ -169,8 +169,10 @@ const MiddleColumn = () => {
         )}
       </div>
 
-      <h1 className='font-bold text-xl mt-6'>NEWSFEED</h1>
-      <hr className='my-4' />
+      <div className='bg-white rounded-lg p-4'>
+        <h1 className='font-bold text-xl mt-6'>NEWSFEED</h1>
+      </div>
+
 
       {filteredNewsFeed.map((newsItem) => {
         const isExpanded = expandedStories[newsItem.id];
@@ -178,7 +180,7 @@ const MiddleColumn = () => {
         const daysAgo = calculateDaysAgo(newsItem.dateandtime.date);
 
         return (
-          <div key={newsItem.id} className='border p-4 rounded-lg mb-4'>
+          <div key={newsItem.id} className='border p-4 rounded-lg mb-4 bg-white'>
             <div className='flex justify-between items-center'>
               <div className='flex items-center gap-2'>
                 <img src={newsfeeddata.profilepic} alt="profile" className='w-10 h-10 rounded-full' />
@@ -188,7 +190,7 @@ const MiddleColumn = () => {
                   <span className='text-xs text-green-500'>{newsItem.eventregistered ? "Event Register" : "Update"}</span>
                 </div>
               </div>
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-4'>
                 <p className='text-sm text-gray-500'>{newsItem.editdate.status ? "Edited" : "Posted"} {daysAgo} days ago</p>
                 <FiSettings className='cursor-pointer' />
               </div>

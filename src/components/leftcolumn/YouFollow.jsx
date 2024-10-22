@@ -45,8 +45,8 @@ const YouFollow = () => {
 
 
     return (
-        <div>
-            <h1 className="text-xl font-bold m-4">People You Know</h1>
+        <div className='bg-white rounded-lg p-4'>
+            <h1 className="text-xl text-blue-500 font-bold m-4">People You Know</h1>
             <div >
                 {showAll && visibleFollow.map((follow) => (
                     <div className="flex items-center gap-4 m-4">

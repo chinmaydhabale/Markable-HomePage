@@ -55,6 +55,13 @@ const Navbar = () => {
             <li className="hover:text-gray-900 cursor-pointer">Explore</li>
           </ul>
         </div>
+        <div className="search relative hidden lg:block">
+          <input
+            type="text"
+            placeholder="Search For Contacts and Projects"
+            className="p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
       </div>
 
       {/* Right section: Notification, Message, Profile, Create, More */}
