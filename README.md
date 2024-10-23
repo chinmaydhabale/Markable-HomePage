@@ -1,6 +1,9 @@
 # Markerble
 
-Markerble is a web-based platform that features a responsive layout with various sections such as navigation, a news feed, and a footer. The platform is built using **React** and **Tailwind CSS**, and includes functionalities like commenting, posting, sharing, and filtering content. 
+Markerble is a web-based platform that features a responsive layout with various sections such as navigation, a news feed, and a footer. The platform is built using **React** and **Tailwind CSS**, and includes functionalities like commenting, posting, sharing, and filtering content.
+
+# deploy link
+[Markerble](https://markerable-home-page.vercel.app/)
 
 ## Table of Contents
 
