@@ -48,8 +48,8 @@ const Followers = () => {
         <div className='bg-white rounded-lg p-4'>
             <h1 className="text-xl text-blue-500 font-bold m-4">Followers</h1>
             <div >
-                {showAll && visibleFollowers.map((follower) => (
-                    <div className="flex items-center gap-4 m-4">
+                {showAll && visibleFollowers.map((follower, index) => (
+                    <div key={index} className="flex items-center gap-4 m-4">
                         <img src={follower.image} alt={follower.name} className="w-14 h-14 rounded-full" />
                         <p className='font-semibold'>{follower.name}</p>
                     </div>
@@ -59,9 +59,9 @@ const Followers = () => {
 
             <div className='flex gap-2 m-4 flex-wrap'>
 
-                {!showAll && followerlist.map((follower) => {
+                {!showAll && followerlist.map((follower, index) => {
                     return (
-                        <div className="flex items-center gap-4">
+                        <div key={index} className="flex items-center gap-4">
                             <img src={follower.image} alt={follower.name} className="w-10 h-10 rounded-full" />
                         </div>
                     )
